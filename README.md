@@ -127,6 +127,3 @@ uv run streamlit run streamlit_app.py
 
 Open http://localhost:8501, upload a PDF and ask a question.
 
-## Credits
-
-Based on the [Production Grade RAG Python App](https://github.com/techwithtim/ProductionGradeRAGPythonApp) tutorial by Tech With Tim, with my own changes on top.
