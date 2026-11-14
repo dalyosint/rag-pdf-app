@@ -46,3 +46,21 @@ class QdrantStorage:
                 sources.add(source)
 
         return {"contexts": contexts, "sources": list(sources)}
+
+    def list_sources(self) -> dict[str, int]:
+        """Return {pdf name: number of chunks} for every document stored."""
+        counts: dict[str, int] = {}
+        offset = None
+        while True:
+            points, offset = self.client.scroll(
+                collection_name=self.collection,
+                with_payload=["source"],
+                with_vectors=False,
+                limit=256,
+                offset=offset,
+            )
+            for p in points:
+                src = (p.payload or {}).get("source", "unknown")
+                counts[src] = counts.get(src, 0) + 1
+            if offset is None:
+                return counts

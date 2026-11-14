@@ -1,0 +1,11 @@
+[client]
+# Hide the "Deploy" button and developer menu entries
+toolbarMode = "minimal"
+
+[theme]
+# Only accent color, roundness and font are set, so the app
+# still follows the user's light / dark mode setting.
+primaryColor = "#4F46E5"
+baseRadius = "large"
+font = "sans-serif"
+showSidebarBorder = true

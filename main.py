@@ -117,7 +117,10 @@ async def rag_query_pdf_ai(ctx: inngest.Context):
 
     answer = res["choices"][0]["message"]["content"].strip()
     return RAGQueryResult(
-        answer=answer, sources=found.sources, num_contexts=len(found.contexts)
+        answer=answer,
+        sources=found.sources,
+        num_contexts=len(found.contexts),
+        contexts=found.contexts,
     ).model_dump()
 
 

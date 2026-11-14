@@ -27,3 +27,4 @@ class RAGQueryResult(pydantic.BaseModel):
     answer: str
     sources: list[str]
     num_contexts: int
+    contexts: list[str] = []  # the chunks used, so the UI can show them
